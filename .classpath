@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="api-gateway/src/main/java"/>
+	<classpathentry kind="src" path="connessioni/src/main/java"/>
+	<classpathentry kind="src" path="ricette-seguite/src/main/java"/>
+	<classpathentry kind="src" path="ricette/src/main/java"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
