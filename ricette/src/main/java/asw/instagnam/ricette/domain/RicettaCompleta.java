@@ -2,7 +2,8 @@ package asw.instagnam.ricette.domain;
 
 import javax.persistence.*; 
 
-import lombok.*; 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /* Ricetta, in formato completo. */ 
 @Entity 
