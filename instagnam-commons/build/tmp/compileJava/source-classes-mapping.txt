@@ -1,0 +1,8 @@
+asw/instagnam/common/api/event/ConnessioneCreatedEvent.java
+ asw.instagnam.common.api.event.ConnessioneCreatedEvent
+asw/instagnam/common/api/event/DomainEvent.java
+ asw.instagnam.common.api.event.DomainEvent
+asw/instagnam/common/api/event/RicettaCreatedEvent.java
+ asw.instagnam.common.api.event.RicettaCreatedEvent
+asw/instagnam/common/api/publisher/DomainEventPublisher.java
+ asw.instagnam.common.api.publisher.DomainEventPublisher

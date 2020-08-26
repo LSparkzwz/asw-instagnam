@@ -43,7 +43,7 @@ spring:
     url: jdbc:mysql://mysql-ricette:3306/ricette
     username: user
     password: password
-    driverClassName: org.mysql.Driver
+    driverClassName: com.mysql.jdbc.Driver
 server:
   port: ${PORT:${SERVER_PORT:0}}
 #  port: 8080
@@ -52,3 +52,7 @@ server:
 #spring.jpa.show-sql: true
 # disable OSIV
 spring.jpa.open-in-view: false
+
+asw.kafka.channel.out: ricette
+
+

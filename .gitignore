@@ -1,6 +1,8 @@
 /bin/
-/.gradle/
+/build/
+.gradle
 .idea/
 .settings/
 .classpath
 .project
+Dockerfile

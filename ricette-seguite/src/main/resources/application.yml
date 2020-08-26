@@ -43,7 +43,9 @@ spring:
     url: jdbc:mysql://mysql-ricette-seguite:3306/ricette-seguite
     username: user
     password: password
-    driverClassName: org.mysql.Driver
+    driverClassName: com.mysql.jdbc.Driver
 server: 
   port: ${PORT:${SERVER_PORT:0}}
 #  port: 8080
+asw.kafka.channel.in.connessioni: connessioni
+asw.kafka.channel.in.ricette: ricette
