@@ -77,7 +77,7 @@ services:
       - consul
 
   connessioni-service:
-    container_name: connessioni
+    #container_name: connessioni
     build: ./connessioni
     depends_on:
       - consul
@@ -86,7 +86,7 @@ services:
       - zookeeper
 
   ricette-service:
-    container_name: ricette
+    #container_name: ricette
     build: ./ricette
     depends_on:
       - consul
@@ -95,7 +95,7 @@ services:
       - zookeeper
 
   ricette-seguite-service:
-    container_name: ricette-seguite
+    #container_name: ricette-seguite
     build: ./ricette-seguite
     depends_on:
       - consul

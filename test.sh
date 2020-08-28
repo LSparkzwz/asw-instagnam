@@ -53,6 +53,8 @@ echo -e '[{"id":2,"follower":"Gennaro","followed":"Cristiano"}]'
 echo -e "\nOutput reale:"
 curl localhost:8080/connessioni/connessioni?follower={Gennaro}
 
+echo -e
+
 
 
 
