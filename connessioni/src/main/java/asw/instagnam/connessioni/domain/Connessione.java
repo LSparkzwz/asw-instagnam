@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 public class Connessione {
 
 	@Id 
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; 
 	private String follower; 
 	private String followed; 

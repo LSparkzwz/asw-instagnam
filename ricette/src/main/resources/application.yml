@@ -5,7 +5,7 @@ spring:
     name: ricette
   cloud:
     consul:
-      host: localhost
+      host: consul
       port: 8500
       discovery: 
         instanceId: ${spring.application.name}-${spring.cloud.client.hostname}-${random.value}
@@ -33,17 +33,14 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   jpa:
-    database: MYSQL
+    hibernate.ddl-auto: update
+    generate-ddl: true
     show-sql: true
-    hibernate:
-      ddl-auto: update
-      use-new-id-generator-mappings: true
   datasource:
-    platform: mysql
+    driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://mysql-ricette:3306/ricette
     username: user
     password: password
-    driverClassName: com.mysql.jdbc.Driver
 server:
   port: ${PORT:${SERVER_PORT:0}}
 #  port: 8080
@@ -53,6 +50,9 @@ server:
 # disable OSIV
 spring.jpa.open-in-view: false
 
-asw.kafka.channel.out: ricette
+asw:
+  kafka:
+    channel:
+      out: ricette
 
 

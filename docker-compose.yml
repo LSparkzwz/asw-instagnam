@@ -2,40 +2,48 @@ version: '3.8'
 services:
   mysql-connessioni:
     container_name: mysqlConnessioni
-    image: mysql
+    image: mysql:5.7
     volumes:
-      - "$PWD/mysql:/docker-entrypoint-initdb.d"
+      - "$PWD/connessioni/mysql:/docker-entrypoint-initdb.d"
     ports:
       - 3306:3306
     environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: connessioni
       MYSQL_USER: user
       MYSQL_PASSWORD: password
-      MYSQL_DB: connessioni
 
   mysql-ricette:
     container_name: mysqlRicette
-    image: mysql
+    image: mysql:5.7
     volumes:
-      - "$PWD/mysql:/docker-entrypoint-initdb.d"
+      - "$PWD/ricette/mysql:/docker-entrypoint-initdb.d"
     ports:
       - 3307:3306
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: ricette
+      MYSQL_ROOT_PASSWORD: "root_password"
+      MYSQL_DATABASE: ricette
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
 
   mysql-ricette-seguite:
     container_name: mysqlRicetteSeguite
-    image: mysql
+    image: mysql:5.7
+    volumes:
+      - "$PWD/ricette-seguite/mysql:/docker-entrypoint-initdb.d"
     ports:
       - 3308:3306
     environment:
-      POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: ricette-seguite
+      MYSQL_ROOT_PASSWORD: root_password
+      #ricette-seguite creates problems with mysql
+      MYSQL_DATABASE: ricette_seguite
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
 
   consul:
     image: consul
+    ports:
+      - 8500:8500
 
   zookeeper:
     image: wurstmeister/zookeeper
@@ -55,35 +63,42 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://:9092
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
       KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
-      KAFKA_CREATE_TOPICS: "connessioni-topic:2:1, ricette-topic:2:1"
+      KAFKA_CREATE_TOPICS: "connessioni:2:1,ricette:2:1"
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
 
   apigateway:
+    container_name: apigateway
     build: ./api-gateway
     ports:
-      - 8090:8080
+      - 8080:8080
     depends_on:
       - consul
 
   connessioni-service:
+    container_name: connessioni
     build: ./connessioni
     depends_on:
       - consul
       - mysql-connessioni
       - kafka
+      - zookeeper
 
   ricette-service:
+    container_name: ricette
     build: ./ricette
     depends_on:
       - consul
       - mysql-ricette
       - kafka
+      - zookeeper
 
   ricette-seguite-service:
+    container_name: ricette-seguite
     build: ./ricette-seguite
     depends_on:
       - consul
       - mysql-ricette-seguite
       - kafka
+      - zookeeper

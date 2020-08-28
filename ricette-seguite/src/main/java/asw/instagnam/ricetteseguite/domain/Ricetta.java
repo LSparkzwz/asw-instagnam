@@ -8,7 +8,7 @@ import javax.persistence.Id;
 
 /* Ricetta (in formato breve). */
 @Entity
-@Data
+@Data @NoArgsConstructor
 public class Ricetta {
 
 	@Id

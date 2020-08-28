@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class RicettaCompleta {
 
 	@Id 
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id; 
 	private String autore; 
 	private String titolo; 

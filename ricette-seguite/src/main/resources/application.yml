@@ -5,7 +5,7 @@ spring:
     name: ricette-seguite
   cloud:
     consul:
-      host: localhost
+      host: consul
       port: 8500
       discovery: 
         instanceId: ${spring.application.name}-${spring.cloud.client.hostname}-${random.value}
@@ -33,19 +33,20 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
   jpa:
-    database: MYSQL
+    hibernate.ddl-auto: update
+    generate-ddl: true
     show-sql: true
-    hibernate:
-      ddl-auto: update
-      use-new-id-generator-mappings: true
   datasource:
-    platform: mysql
-    url: jdbc:mysql://mysql-ricette-seguite:3306/ricette-seguite
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql-ricette-seguite:3306/ricette_seguite
     username: user
     password: password
-    driverClassName: com.mysql.jdbc.Driver
 server: 
   port: ${PORT:${SERVER_PORT:0}}
 #  port: 8080
-asw.kafka.channel.in.connessioni: connessioni
-asw.kafka.channel.in.ricette: ricette
+asw:
+  kafka:
+    channel:
+      in:
+        connessioni: connessioni
+        ricette: ricette

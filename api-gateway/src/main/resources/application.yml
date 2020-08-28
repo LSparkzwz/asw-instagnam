@@ -5,7 +5,7 @@ spring:
     name: apigateway
   cloud:
     consul:
-      host: localhost
+      host: consul
       port: 8500
       discovery: 
         instanceId: ${spring.application.name}-${spring.cloud.client.hostname}-${random.value}
@@ -15,7 +15,7 @@ spring:
         # dopo quanto tempo consul deve smettere di restituire servizi che non rispondono all'health check? 
         healthCheckCriticalTimeout: 60s
         # consul deve restituire solo servizi che passano l'health check (default=false) 
-        queryPassing: true 
+        queryPassing: false
     loadbalancer: 
       ribbon.enabled: false 
     # spring cloud gateway routes 
