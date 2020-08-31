@@ -1,5 +1,6 @@
 #!/bin/bash
 
-docker-compose down -v --remove-orphans
+kubectl delete all --all -n instagnam
+kubectl delete namespace instagnam
 
 echo Stopped

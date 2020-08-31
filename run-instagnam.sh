@@ -1,5 +1,5 @@
 #!/bin/bash
 
-docker-compose up -d
+kubectl apply -f instagnam-deployment.yaml 
 
-echo Started
+echo -e Started

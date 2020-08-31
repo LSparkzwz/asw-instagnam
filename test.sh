@@ -1,5 +1,7 @@
 #!/bin/bash
 
+url=$(minikube service apigateway -n instagnam --url=true)
+
 echo -e "Connessioni:"
 
 echo -e "\nOutput atteso:"
@@ -7,7 +9,7 @@ echo -e "\nOutput atteso:"
 echo -e '[{"id":1,"follower":"Cristiano","followed":"Gennaro"},{"id":2,"follower":"Gennaro","followed":"Cristiano"},{"id":3,"follower":"Paolo","followed":"Cristiano"},{"id":4,"follower":"Paolo","followed":"Gennaro"},{"id":5,"follower":"Anna","followed":"Antonino"},{"id":6,"follower":"Anna","followed":"Benedetta"}]'
 
 echo -e "\n\nOutput reale:"
-curl http://localhost:8080/connessioni/connessioni
+curl $url/connessioni
 
 echo -e "\n ---------------------------------------------------------------------------------------------------------------------------------------- "
 
@@ -18,7 +20,7 @@ echo -e "\nOutput atteso:"
 echo -e '[{"id":1,"autore":"Cristiano","titolo":"Panino al prosciutto"},{"id":2,"autore":"Cristiano","titolo":"Pizza e mortazza"},{"id":3,"autore":"Gennaro","titolo":"Tonno e fagioli"},{"id":4,"autore":"Antonino","titolo":"Pizza margherita"},{"id":5,"autore":"Benedetta","titolo":"Tonno e fagioli"}]'
 
 echo -e "\n\nOutput reale:"
-curl http://localhost:8080/ricette/ricette
+curl $url/ricette
 
 echo -e "\n ---------------------------------------------------------------------------------------------------------------------------------------- "
 
@@ -29,7 +31,7 @@ echo -e "\nOutput atteso:"
 echo -e '[{"id":1,"autore":"Cristiano","titolo":"Panino al prosciutto"},{"id":2,"autore":"Cristiano","titolo":"Pizza e mortazza"}]'
 
 echo -e "\n\nOutput reale:"
-curl http://localhost:8080/ricette-seguite/ricetteseguite/Gennaro
+curl $url/ricetteseguite/Gennaro
 
 echo -e "\n ---------------------------------------------------------------------------------------------------------------------------------------- "
 
@@ -40,7 +42,7 @@ echo -e "\nOutput atteso:"
 echo -e '[{"id":1,"autore":"Cristiano","titolo":"Panino al prosciutto"},{"id":2,"autore":"Cristiano","titolo":"Pizza e mortazza"}]'
 
 echo -e "\nOutput reale:"
-curl localhost:8080/ricette/ricette?autore={Cristiano}
+curl $url/ricette?autore={Cristiano}
 
 echo -e "\n ---------------------------------------------------------------------------------------------------------------------------------------- "
 
@@ -51,7 +53,7 @@ echo -e "\nOutput atteso:"
 echo -e '[{"id":2,"follower":"Gennaro","followed":"Cristiano"}]'
 
 echo -e "\nOutput reale:"
-curl localhost:8080/connessioni/connessioni?follower={Gennaro}
+curl $url/connessioni?follower={Gennaro}
 
 echo -e
 

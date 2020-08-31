@@ -1,16 +1,10 @@
 #!/bin/bash
 
-echo gradle build
-echo
+echo "gradle build\n"
 
 gradle clean build
 
-echo docker build
-echo
+echo -e "\nstarting minikube\n"
 
-docker-compose -f docker-compose.yml build
-
-echo docker push
-echo
-
-docker-compose -f docker-compose.yml push
+minikube start
+minikube addons enable ingress
