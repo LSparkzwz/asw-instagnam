@@ -48,6 +48,6 @@ per trovare le ricette seguite dall'utente U, è basata su invocazioni remote RE
 * poi, ripetutamente, per ciascun utente A nell'insieme AA, viene invocata `GET /ricette?autore=A` di *ricette*, 
   in modo da trovare, complessivamente, le ricette degli autori nell'insieme degli utenti AA seguiti da U 
 
-## Descrizione svolte
+## Descrizione delle attività svolte
 
 [PDF Link](https://drive.google.com/file/d/1MOkMRkby9EqAUpFD1D0zDicShhxPIChL/view?usp=sharing)
