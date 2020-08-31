@@ -324,7 +324,7 @@ metadata:
     app: instagnam
     service: ricette-seguite
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: instagnam
@@ -352,7 +352,7 @@ metadata:
     app: instagnam
     service: connessioni
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: instagnam
@@ -381,7 +381,7 @@ metadata:
     app: instagnam
     service: ricette
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: instagnam
