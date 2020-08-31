@@ -2,7 +2,7 @@
 
 Progetto del corso di Analisi e progettazione del software per l'anno accademico 2019-2020. 
 
-## Implementazione progetto 
+## Controllo delle implementazioni del progetto 
 
 - Fare il checkout dei branch `docker-compose` e `kubernetes` per controllare le rispettive implementazioni.
 
