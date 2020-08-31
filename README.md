@@ -9,6 +9,7 @@ Variante più complessa del progetto utilizzando Kubernetes.
 - Eseguire lo script `run-instagnam.sh` 
 
 ### Testing: 
+- Attendere che i contenitori abbiano finito di avviarsi.
 - Eseguire lo script `test.sh` 
 - Si può anche controllare lo stato dei contenitori attraverso `minikube dashboard`
 
