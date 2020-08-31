@@ -2,6 +2,10 @@
 
 Progetto del corso di Analisi e progettazione del software per l'anno accademico 2019-2020. 
 
+## Implementazione progetto 
+
+- Fare il checkout dei branch `docker-compose` e `kubernetes` per controllare le rispettive implementazioni.
+
 
 ## Descrizione di questo progetto 
 
@@ -44,20 +48,6 @@ per trovare le ricette seguite dall'utente U, è basata su invocazioni remote RE
 * poi, ripetutamente, per ciascun utente A nell'insieme AA, viene invocata `GET /ricette?autore=A` di *ricette*, 
   in modo da trovare, complessivamente, le ricette degli autori nell'insieme degli utenti AA seguiti da U 
 
+## Descrizione svolte
 
-## Esecuzione 
-
-Per eseguire questo progetto: 
-
-* avviare *Consul* eseguendo lo script `start-consul.sh` 
-
-* per avviare l'applicazione *Instagnam*, eseguire lo script `run-instagnam.sh` 
-
-Alla fine, l'applicazione può essere arrestata usando lo script `stop-java-processes.sh` (**da usare con cautela!**). 
-
-Inoltre, *Consul* può essere arrestato con lo script `stop-consul.sh`. 
-
-
-## Descrizione delle attività da svolgere 
-
-Si veda il sito web del corso di [Architettura dei sistemi software](http://cabibbo.dia.uniroma3.it/asw/).
+[PDF Link](https://drive.google.com/file/d/1MOkMRkby9EqAUpFD1D0zDicShhxPIChL/view?usp=sharing)
